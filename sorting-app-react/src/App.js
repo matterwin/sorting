@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+import VisualSortings from './SortVisual/VisualSorting';
 import './App.css';
+import React from 'react'
 
 function App() {
   return (
     <div>
-      <SortingAlgos></SortingAlgos>
+      <VisualSortings></VisualSortings>
     </div>
   );
 }

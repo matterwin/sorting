@@ -1,0 +1,65 @@
+.bar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 94vh;
+    align-items: center;
+    /* border: 5px red solid; */
+    position: static;
+    background-color: #6b5151;
+    /* margin-left: 350px;
+    margin-right: 350px; */
+    padding-bottom: 13px;
+    padding-top: 6px;
+}
+
+.bars {
+    display: flex;
+    font-family: "Days One", sans-serif;
+    text-align: center;
+    font-size: 0px;
+    align-items: center;
+    justify-content: center;
+    color: #4d3939;
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.nav-container {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content:flex-start;
+    /* align-items: left; */
+}
+
+.nav-container > button {
+    width: 150px;
+    cursor: pointer;
+    background-color: #977575;
+    color: #fff;
+    font-family: "Days One", sans-serif;
+    text-decoration: none;
+    border: 0px;
+    height: 40px;
+}
+
+.nav-container > button:hover {
+    background-color: #aa5555;
+}
+
+.nav-container > button:active {
+    background-color: #ffffff;
+    color: #aa5555;
+}
+
+.Random-button {
+    margin-right: auto;
+}
+
+.sort-buttons {
+    margin-left: 2px;
+}
