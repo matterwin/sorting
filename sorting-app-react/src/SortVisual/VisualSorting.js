@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from 'react'
+import * as sortingAlgos from "../SortAlgos/SortingAlgos"
 
 import "./VisualSorting.css"
 
 function VisualSorting() {
 
     const [array, setArray] = useState([]);
-    var initRanNum = initRanNum = Math.floor(Math.random() * (165 - 10 + 1)) + 10;
+    var initRanNum = Math.floor(Math.random() * (165 - 10 + 1)) + 10;
 
     useEffect(() => {
         generateInitArray();
-        console.log(initRanNum);
     }, []) 
 
-    function bubbleSort() {alert("not implemented yet");}
+    function bubbleSort() {
+      //  console.log(array);
+       // const sortedArryJS = array.slice().sort(function(a,b){return a - b});
+       // console.log(sortedArryJS);
+        
+
+        const bubbleSortArray = sortingAlgos.bubbleSort(array);
+        console.log(bubbleSortArray);
+
+
+    }
+
     function mergeSort() {alert("not implemented yet");}
     function quickSort() {alert("not implemented yet");}
     function heapSort() {alert("not implemented yet");}
