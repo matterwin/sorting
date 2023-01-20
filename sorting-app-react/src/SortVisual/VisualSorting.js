@@ -5,18 +5,18 @@ import "./VisualSorting.css"
 function VisualSorting() {
 
     const [array, setArray] = useState([]);
-    var initRanNum = 0;
+    var initRanNum = initRanNum = Math.floor(Math.random() * (165 - 10 + 1)) + 10;
 
     useEffect(() => {
         generateInitArray();
-        initRanNum = Math.floor(Math.random() * (165 - 10 + 1)) + 10;
         console.log(initRanNum);
     }, []) 
 
-    function mergeSort() {}
-    function bubbleSort() {}
-    function heapSort() {}
-    function quickSort() {}
+    function bubbleSort() {alert("not implemented yet");}
+    function mergeSort() {alert("not implemented yet");}
+    function quickSort() {alert("not implemented yet");}
+    function heapSort() {alert("not implemented yet");}
+    
     
     function generateInitArray() {
 
@@ -38,10 +38,10 @@ function VisualSorting() {
         <>
             <div className="nav-container">
                 <button onClick={resetArray} className="Random-button">Randomize</button>
-                <button className="sort-buttons">Bubble Sort</button>
-                <button className="sort-buttons">Merge Sort</button>
-                <button className="sort-buttons">Quick Sort</button>
-                <button className="sort-buttons">Heap Sort</button>
+                <button onClick={bubbleSort} className="sort-buttons">Bubble Sort</button>
+                <button onClick={mergeSort} className="sort-buttons">Merge Sort</button>
+                <button onClick={quickSort} className="sort-buttons">Quick Sort</button>
+                <button onClick={heapSort} className="sort-buttons">Heap Sort</button>
             </div>
             <div className="bar-container">
                 {array.map((value, index) => (
