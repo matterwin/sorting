@@ -24,14 +24,30 @@ export const mergeSort = array => {
         return array;
     }
     else {
-        let firstHalfOfArray = array.slice(0, array.length / 2);
-        let secondHalfOfArray = array.slice(array.length / 2);
 
+        const firstHalfOfArray = mergeSort(array.slice(0, Math.floor(array.length / 2)));
+        const secondHalfOfArray = mergeSort(array.slice(Math.floor(array.length / 2)));
         
+        let indexR = 0;
+        let indexL = 0;
+        const sortedMergedArray = [];
 
+        while(indexR < firstHalfOfArray.length && indexL < secondHalfOfArray.length) {
+            if(firstHalfOfArray[indexR] < secondHalfOfArray[indexL])
+                sortedMergedArray.push(firstHalfOfArray[indexR++]);
+            else
+                sortedMergedArray.push(secondHalfOfArray[indexL++]);
+        }
+
+        return sortedMergedArray.concat(firstHalfOfArray.slice(indexR)).concat(secondHalfOfArray.slice(indexL));
         
-
     }
+}
 
-    return array;
+export const quickSort = array => {
+
+}
+
+export const heapSort = array => {
+    
 }
