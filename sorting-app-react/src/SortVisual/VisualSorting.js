@@ -13,18 +13,28 @@ function VisualSorting() {
     }, []) 
 
     function bubbleSort() {
-      //  console.log(array);
+        //console.log(array);
        // const sortedArryJS = array.slice().sort(function(a,b){return a - b});
        // console.log(sortedArryJS);
         
 
         const bubbleSortArray = sortingAlgos.bubbleSort(array);
         console.log(bubbleSortArray);
+        console.log(bubbleSortArray.split());
 
+        setArray([...bubbleSortArray]);
 
     }
 
-    function mergeSort() {alert("not implemented yet");}
+    function mergeSort() {
+        const mergeSortArray = sortingAlgos.mergeSort(array);
+        console.log(mergeSortArray);
+
+        
+
+        setArray([...mergeSortArray]);
+
+    }
     function quickSort() {alert("not implemented yet");}
     function heapSort() {alert("not implemented yet");}
     

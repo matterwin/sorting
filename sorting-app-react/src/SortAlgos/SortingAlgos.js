@@ -17,3 +17,16 @@ export const bubbleSort = array => {
 
     return array;
 }
+
+export const mergeSort = array => {
+
+    if(array.length === 2){
+        return array;
+    }
+    else {
+        let firstHalfOfArray = array.slice(0, array.length / 2);
+        let secondHalfOfArray = array.slice(array.length / 2);
+    }
+
+    return array;
+}
