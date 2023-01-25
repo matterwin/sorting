@@ -26,7 +26,9 @@ function VisualSorting() {
 
     function quickSort() {
         const quickSortArray = sortingAlgos.quickSort(array);
+        console.log(array);
         console.log(quickSortArray);
+
         setArray([...quickSortArray]);
     }
 

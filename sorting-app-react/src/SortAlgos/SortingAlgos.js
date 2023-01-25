@@ -1,3 +1,5 @@
+import "../SortVisual/VisualSorting.css"
+
 
 export const bubbleSort = array => {
 
@@ -14,6 +16,8 @@ export const bubbleSort = array => {
             }
         }
     }
+
+    
 
     return array;
 }
@@ -40,13 +44,73 @@ export const mergeSort = array => {
         }
 
         return sortedMergedArray.concat(firstHalfOfArray.slice(indexR)).concat(secondHalfOfArray.slice(indexL));
-        
     }
 }
 
 export const quickSort = array => {
 
+    if(array.length === 1)
+        return array;
+
+    const leftSide = [];
+    const rightSide = [];
+    const equalToPivot = [];
+
+    let leftPtr = 0;
+    let rightPtr = array.length-1;
+    let pivot = Math.floor(array.length/2);
+
+    // console.log("intial LeftPtr:" + array[leftPtr]);
+    console.log("inital Pivot:" + array[pivot]);
+    // console.log("intial RightPtr:" + array[rightPtr]);
+
+    while(leftPtr !== pivot) {
+
+       // console.log("leftPtr:       " + array[leftPtr]);
+
+        if(array[leftPtr] < array[pivot]) {
+            leftSide.push(array[leftPtr++]);
+        }
+        else if(array[leftPtr] === array[pivot]) {
+            equalToPivot.push(array[leftPtr++]);
+        }
+        else
+            rightSide.push(array[leftPtr++]);
+    }
+
+    while(rightPtr !== pivot) {
+
+       // console.log("rightPtr:       " + array[rightPtr]);
+
+        if(array[rightPtr] < array[pivot]) {
+            leftSide.push(array[rightPtr--]);
+        }
+        else if(array[rightPtr] === array[pivot]) {
+            equalToPivot.push(array[rightPtr--]);
+        }
+        else
+            rightSide.push(array[rightPtr--]);
+    }
+
+
+    console.log("Left array:       " + leftSide);
+    console.log("Right array:       " + rightSide);
+
+
+    if(leftSide.length > 0) quickSort(leftSide);
+    if(rightSide.length > 0) quickSort(rightSide);
+
+   
+    const sortedQuickArray = []; 
+  //  sortedQuickArray.concat(leftSide).concat(equalToPivot).concat(rightSide);
+   // console.log("Final sorted array:                                   " + sortedQuickArray);
+    
+    return sortedQuickArray.concat(rightSide).concat(equalToPivot).concat(leftSide);
 }
+
+// export const quickSort = array => {
+    
+// }
 
 export const heapSort = array => {
     
