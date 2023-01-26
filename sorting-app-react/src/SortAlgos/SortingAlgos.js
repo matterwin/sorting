@@ -46,65 +46,70 @@ export const mergeSort = array => {
 }
 
 export const quickSort = array => {
-
-    if(array.length === 1)
-        return array;
-
-    const leftSide = [];
-    const rightSide = [];
-    const equalToPivot = [];
-
-    let leftPtr = 0;
-    let rightPtr = array.length-1;
-    let pivot = Math.floor(array.length/2);
-
-    // console.log("intial LeftPtr:" + array[leftPtr]);
-    console.log("inital Pivot:" + array[pivot]);
-    // console.log("intial RightPtr:" + array[rightPtr]);
-
-    while(leftPtr !== pivot) {
-
-       // console.log("leftPtr:       " + array[leftPtr]);
-
-        if(array[leftPtr] < array[pivot]) {
-            leftSide.push(array[leftPtr++]);
-        }
-        else if(array[leftPtr] === array[pivot]) {
-            equalToPivot.push(array[leftPtr++]);
-        }
-        else
-            rightSide.push(array[leftPtr++]);
+    if (array.length <= 1) return array;
+  
+    const left = [];
+    const right = [];
+    const equal = [];
+    const pivot = array[Math.floor(Math.random() * array.length)];
+  
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] < pivot) {
+        left.push(array[i]);
+      } else if (array[i] > pivot) {
+        right.push(array[i]);
+      } else {
+        equal.push(array[i]);
+      }
     }
+  
+    return [...quickSort(left), ...equal, ...quickSort(right)];
+  };
+  
+// export const quickSort = array => {
 
-    while(rightPtr !== pivot) {
+//     if(array.length === 1)
+//         return array;
 
-       // console.log("rightPtr:       " + array[rightPtr]);
+//     const leftSide = [];
+//     const rightSide = [];
+//     const equalToPivot = [];
 
-        if(array[rightPtr] < array[pivot]) {
-            leftSide.push(array[rightPtr--]);
-        }
-        else if(array[rightPtr] === array[pivot]) {
-            equalToPivot.push(array[rightPtr--]);
-        }
-        else
-            rightSide.push(array[rightPtr--]);
-    }
+//     let leftPtr = 0;
+//     let rightPtr = array.length-1;
+//     let pivot = Math.floor(array.length/2);
 
+//     while(leftPtr !== pivot) {
 
-    console.log("Left array:       " + leftSide);
-    console.log("Right array:       " + rightSide);
+//         if(array[leftPtr] < array[pivot]) {
+//             leftSide.push(array[leftPtr++]);
+//         }
+//         else if(array[leftPtr] === array[pivot]) {
+//             equalToPivot.push(array[leftPtr++]);
+//         }
+//         else
+//             rightSide.push(array[leftPtr++]);
+//     }
 
+//     while(rightPtr !== pivot) {
 
-    if(leftSide.length > 0) quickSort(leftSide);
-    if(rightSide.length > 0) quickSort(rightSide);
+//         if(array[rightPtr] < array[pivot]) {
+//             leftSide.push(array[rightPtr--]);
+//         }
+//         else if(array[rightPtr] === array[pivot]) {
+//             equalToPivot.push(array[rightPtr--]);
+//         }
+//         else
+//             rightSide.push(array[rightPtr--]);
+//     }
+
+//     if(leftSide.length > 0) quickSort(leftSide);
+//     if(rightSide.length > 0) quickSort(rightSide);
 
    
-    const sortedQuickArray = []; 
-  //  sortedQuickArray.concat(leftSide).concat(equalToPivot).concat(rightSide);
-   // console.log("Final sorted array:                                   " + sortedQuickArray);
-    
-    return sortedQuickArray.concat(rightSide).concat(equalToPivot).concat(leftSide);
-}
+//     const sortedQuickArray = []; 
+//     return sortedQuickArray.concat(rightSide).concat(equalToPivot).concat(leftSide);
+// }
 
 // export const quickSort = array => {
     

@@ -30,10 +30,7 @@ function VisualSorting() {
             isSorted = true;
             for (let i = 0; i < array.length - 1; i++) {
 
-                // setTimeout(()=> setCurrentIdx(i), 1000);
-                
                 if (array[i] > array[i + 1]) {
-                    // setTimeout(()=> setCurrentIdx(i), 100);
                     let tmp = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = tmp;
@@ -76,13 +73,36 @@ function VisualSorting() {
             }
     }
 
-    function quickSort() {
-        const quickSortArray = sortingAlgos.quickSort(array);
-        console.log(array);
-        console.log(quickSortArray);
-
-        setArray([...quickSortArray]);
+    function quickSortCall() {
+        const quickArray = quickSort(array)
+        setArray([...quickArray])
     }
+
+    function quickSort(array) {
+
+        if (array.length <= 1) return array;
+      
+        const left = [];
+        const right = [];
+        const equal = [];
+        const pivot = array[Math.floor(Math.random() * array.length)];
+      
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] < pivot) {
+            left.push(array[i]);
+          } else if (array[i] > pivot) {
+            right.push(array[i]);
+          } else {
+            equal.push(array[i]);
+          }
+        }
+      
+        return [...quickSort(left), ...equal, ...quickSort(right)];
+    }
+
+
+//------------------------------------------------------------------------------------------------------------
+
 
     function heapSort() {
         const heapSortArray = sortingAlgos.heapSort(array);
@@ -115,7 +135,7 @@ function VisualSorting() {
                 <button onClick={resetArray} className="Random-button">Randomize</button>
                 <button onClick={bubbleSort} className="sort-buttons">Bubble Sort</button>
                 <button onClick={mergeSortCall} className="sort-buttons">Merge Sort</button>
-                <button onClick={quickSort} className="sort-buttons">Quick Sort</button>
+                <button onClick={quickSortCall} className="sort-buttons">Quick Sort</button>
                 <button onClick={heapSort} className="sort-buttons">Heap Sort</button>
             </div>
             <div className="bar-container">
